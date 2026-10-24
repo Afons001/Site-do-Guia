@@ -1,253 +1,376 @@
+html
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">   
-    <title>Relatório</title>
-	<link rel="icon" href="imagens\logo.svg">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-	<style>
-		.menu-box {
-			background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
-			border-radius: 15px;
-			padding: 20px;
-			margin: 15px;
-			box-shadow: 0 8px 25px rgba(23, 134, 93, 0.3);
-		}
-		
-		.menu-label {
-			color: white;
-			font-weight: 500;
-			font-size: 1.1rem;
-			margin: 0;
-			padding: 12px 15px;
-			border-radius: 10px;
-			transition: all 0.3s ease;
-			cursor: pointer;
-			display: block;
-			text-decoration: none;
-		}
-		
-		.menu-label:hover {
-			background-color: rgba(255, 255, 255, 0.2);
-			transform: translateX(5px);
-			color: white;
-			text-decoration: none;
-		}
-		
-		.nav-link {
-			padding: 0;
-			margin: 5px 0;
-			border-radius: 10px;
-			transition: all 0.3s ease;
-		}
-		
-		.nav-link:hover {
-			background-color: rgba(255, 255, 255, 0.1);
-		}
-		
-		.offcanvas {
-			background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
-		}
-		
-		.offcanvas-header {
-			background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
-			color: white;
-			border-radius: 0 0 15px 15px;
-		}
-		
-		.btn-close {
-			filter: invert(1);
-		}
-		
-		/* Animação de entrada */
-		@keyframes slideIn {
-			from {
-				transform: translateX(-100%);
-				opacity: 0;
-			}
-			to {
-				transform: translateX(0);
-				opacity: 1;
-			}
-		}
-		
-		/* Efeito de destaque para o item ativo */
-		.nav-link.active .menu-label {
-			background-color: rgba(255, 255, 255, 0.3);
-			box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Diagrama</title>
+
+    <link rel="icon" href="imagens/logo.svg">
+
+    <!-- Bootstrap 5.3.0 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        defer
+    ></script>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .menu-box {
+            background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px;
+            box-shadow: 0 8px 25px rgba(23, 134, 93, 0.3);
+        }
+
+        .menu-label {
+            color: white;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin: 0;
+            padding: 12px 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+        }
+
+        .menu-label:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            padding: 0;
+            margin: 5px 0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .offcanvas {
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .offcanvas-header {
+            background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
+            color: white;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+        .nav-link.active .menu-label {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .conteudo-imagem {
+            display: block;
+            max-width: 100%;
+            width: 50%;
+            height: auto;
+        }
+
+        @media (max-width: 576px) {
+            .menu-lateral {
+                width: 85% !important;
+            }
+
+            .conteudo-imagem {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-	<!-- Botão do Menu Verde -->
-	<button class="btn" type="button"
-		data-bs-toggle="offcanvas"
-		data-bs-target="#MenuLateral"
-		aria-controls="MenuLateral"
-		style="background-color:#17865D;color:#fff;position:fixed;top:20px;right:20px;z-index:1050;font-size:1.2rem;padding:8px 20px;border-radius:10px;box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
-		<span style="font-size:1.5rem;vertical-align:middle;">☰</span> 
-		<span style="margin-left:8px;vertical-align:middle;">Menu</span>
-	</button>
 
-	<div class="offcanvas offcanvas-start" tabindex="-1" id="MenuLateral" aria-labelledby="MenuLateralLabel" style="width: 450px;">
-		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="MenuLateralLabel">
-				<span style="font-size: 1.8rem; margin-right: 10px;">📊</span>
-				Menu de Navegação
-			</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-		</div>
-		<!-- Novo box para envolver os botões -->
-		<div class="menu-box">
-			<ul class="nav flex-column">
-				<li class="nav-item">
-					<a class="nav-link" href="index.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">🏠</span>
-							Início
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="selects.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">📈</span>
-							Instalação
-						</label>
-					</a>
-				</li>
+    <!-- Botão do menu -->
+    <button
+        class="btn"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#MenuLateral"
+        aria-controls="MenuLateral"
+        style="
+            background-color: #17865D;
+            color: #fff;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            font-size: 1.2rem;
+            padding: 8px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        "
+    >
+        <span style="font-size: 1.5rem; vertical-align: middle;">☰</span>
+        <span style="margin-left: 8px; vertical-align: middle;">Menu</span>
+    </button>
+
+    <!-- Menu lateral -->
+    <div
+        class="offcanvas offcanvas-start menu-lateral"
+        tabindex="-1"
+        id="MenuLateral"
+        aria-labelledby="MenuLateralLabel"
+        style="width: 450px;"
+    >
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="MenuLateralLabel">
+                <span style="font-size: 1.8rem; margin-right: 10px;">📊</span>
+                Menu de Navegação
+            </h5>
+
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Fechar"
+            ></button>
+        </div>
+
+        <div class="menu-box">
+            <ul class="nav flex-column">
+
                 <li class="nav-item">
-					<a class="nav-link" href="views.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">👁️</span>
-							Diagrama
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="proc_join.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">🔗</span>
-							Criação de Tabelas Comandos
-						</label>
-					</a>
-				</li>
+                    <a class="nav-link" href="index.html">
+                        <span class="menu-label">
+                            <span style="margin-right: 10px;">🏠</span>
+                            Início
+                        </span>
+                    </a>
+                </li>
+
                 <li class="nav-item">
-					<a class="nav-link" href="proc_crud.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">⚙️</span>
-							Inserindo Dados
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="proc_regras.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">📋</span>
-							Alterando Dados
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="permissões.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">✔</span>
-							Pesquisas (Select)
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="gatilhos.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">🔫</span>
-							Como Salvar
-						</label>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+                    <a class="nav-link" href="selects.html">
+                        <span class="menu-label">
+                            <span style="margin-right: 10px;">📈</span>
+                            Instalação
+                        </span>
+                    </a>
+                </li>
 
-	<div class="offcanvas offcanvas-start" tabindex="-1" id="sideMenu" aria-labelledby="sideMenuLabel">
-	  <div class="offcanvas-header">
-		<h5 class="offcanvas-title" id="sideMenuLabel">Menu</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-	  </div>
-	  <div class="offcanvas-body">
-		<ul class="list-group">
-		  <li class="list-group-item"><a href="#" class="text-decoration-none">Início</a></li>
-		  <li class="list-group-item"><a href="#" class="text-decoration-none">Instalação</a></li>
-          <li class="list-group-item"><a href="#" class="text-decoration-none">Diagrama</a></li>
-          <li class="list-group-item"><a href="#" class="text-decoration-none">Criação de Tabelas Comandos</a></li>
-		  <li class="list-group-item"><a href="#" class="text-decoration-none">Inserindo Dados</a></li>
-          <li class="list-group-item"><a href="#" class="text-decoration-none">Alterando Dados</a></li>
-          <li class="list-group-item"><a href="#" class="text-decoration-none">Pesquisas (Select)</a></li>
-		  <li class="list-group-item"><a href="#" class="text-decoration-none">Como Salvar</a></li>
-		</ul>
-	</div>
-</div>
+                <li class="nav-item">
+                    <a class="nav-link" href="views.html">
+                        <span class="menu-label">
+                            <span style="margin-right: 10px;">👁️</span>
+                            Diagrama
+                        </span>
+                    </a>
+                </li>
 
-	<div class="container-fluid py-4">
-			<div class="card mb-4">
-				<div class="card-header bg-success text-white text-center py-3">
-					<h2 class="mb-0 text-white">Relacionamentos</h2>
-				</div>
-				<div class="card-body">
-					<a href="https://youtu.be/dAwtZ0leiuU?si=SIMojMODpOsfa_Lg" target="_blank"><h3>Clique aqui para assistir!</h3></a>
-					<br>
-					<img src="imagens\tcc\diagrama\identificar.jfif" alt="identificar" width="50%">
-				</div>
-			</div>
-			<div class="card mb-4">
-				<div class="card-header bg-success text-white text-center py-3">
-					<h2 class="mb-0 text-white">Normalizando</h2>
-				</div>
-				<div class="card-body">
-					<a href="https://youtu.be/sYEY2TntqnI?si=i_WhkfVmTm56o2_T" target="_blank"><h3>Clique aqui para assistir!</h3></a>
-					<br>					
-					<img src="imagens\tcc\diagrama\normalizar.jfif" alt="NORMALIZAR" width="50%">
-				</div>
-			</div>
-			<div class="card mb-4">
-				<div class="card-header bg-success text-white text-center py-3">
-					<h2 class="mb-0 text-white">Criação de tabelas</h2>
-				</div>
-				<div class="card-body">
-					<a href="https://youtu.be/plgjVbf5Htc?si=U0FmxDsBM3IDldeT" target="_blank"><h3>Clique aqui para assistir!</h3></a>
-					<br>
-					<img src="imagens\tcc\diagrama\criar 1.jfif" alt="criar 1" width="50%">
-				</div>
-			</div>
-			<hr style="height: 3px; background: linear-gradient(90deg, #0f7a0f, #28a745); border: none; border-radius: 2px;">
-			<br>
-			<div class="mb-4">
-				<div class="card">
-					<div class="card-header bg-success text-white text-center py-3">
-						<h2 class="mb-0 text-white">Loja do Riverson (diagrama)</h2>
-					</div>
-					<div class="card-body"> 
-						<a href="https://youtu.be/7Gs_geb_Tpk?si=UDQll-HG-Fk5yCGwhttps://youtu.be/Z9IacZ9U1_0?si=EqXibKD6AShlqECz" target="_blank"><h3>Clique aqui para assistir!</h3></a>
-					<br>
-						<img src="imagens\tcc\diagrama\loja.jfif" alt="loja" width="50%">
-					</div>
-				</div>
-			</div>
-</div>
+                <li class="nav-item">
+                    <a class="nav-link" href="proc_join.html">
+                        <span class="menu-label">
+                            <span style="margin-right: 10px;">🔗</span>
+                            Criação de Tabelas Comandos
+                        </span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="proc_crud.html">
+                        <span class="menu-label">
+                            <span style="margin-right: 10px;">⚙️</span>
+                            Inserindo Dados
+                        </span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="proc_regras.html">
+                        <span class="menu-label">
+                            <span style="margin-right: 10px;">📋</span>
+                            Alterando Dados
+                        </span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="permissões.html">
+                        <span class="menu-label">
+                            <span style="margin-right: 10px;">✔</span>
+                            Pesquisas (Select)
+                        </span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="gatilhos.html">
+                        <span class="menu-label">
+                            <span style="margin-right: 10px;">🔫</span>
+                            Como Salvar
+                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <main class="container-fluid py-4">
+
+        <!-- Relacionamentos -->
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white text-center py-3">
+                <h2 class="mb-0 text-white">Relacionamentos</h2>
+            </div>
+
+            <div class="card-body">
+                <a
+                    href="https://youtu.be/dAwtZ0leiuU?si=SIMojMODpOsfa_Lg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <h3>Clique aqui para assistir!</h3>
+                </a>
+
+                <br>
+
+                <img
+                    src="imagens/tcc/diagrama/identificar.jfif"
+                    alt="Diagrama de identificação de relacionamentos"
+                    class="conteudo-imagem"
+                >
+            </div>
+        </div>
+
+        <!-- Normalizando -->
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white text-center py-3">
+                <h2 class="mb-0 text-white">Normalizando</h2>
+            </div>
+
+            <div class="card-body">
+                <a
+                    href="https://youtu.be/sYEY2TntqnI?si=i_WhkfVmTm56o2_T"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <h3>Clique aqui para assistir!</h3>
+                </a>
+
+                <br>
+
+                <img
+                    src="imagens/tcc/diagrama/normalizar.jfif"
+                    alt="Diagrama de normalização"
+                    class="conteudo-imagem"
+                >
+            </div>
+        </div>
+
+        <!-- Criação de tabelas -->
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white text-center py-3">
+                <h2 class="mb-0 text-white">Criação de tabelas</h2>
+            </div>
+
+            <div class="card-body">
+                <a
+                    href="https://youtu.be/plgjVbf5Htc?si=U0FmxDsBM3IDldeT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <h3>Clique aqui para assistir!</h3>
+                </a>
+
+                <br>
+
+                <img
+                    src="imagens/tcc/diagrama/criar%201.jfif"
+                    alt="Exemplo de criação de tabelas"
+                    class="conteudo-imagem"
+                >
+            </div>
+        </div>
+
+        <hr
+            style="
+                height: 3px;
+                background: linear-gradient(90deg, #0f7a0f, #28a745);
+                border: none;
+                border-radius: 2px;
+            "
+        >
+
+        <br>
+
+        <!-- Loja do Riverson -->
+        <div class="mb-4">
+            <div class="card">
+                <div class="card-header bg-success text-white text-center py-3">
+                    <h2 class="mb-0 text-white">Loja do Riverson (diagrama)</h2>
+                </div>
+
+                <div class="card-body">
+                    <a
+                        href="https://youtu.be/7Gs_geb_Tpk?si=UDQll-HG-Fk5yCGw"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <h3>Clique aqui para assistir!</h3>
+                    </a>
+
+                    <br>
+
+                    <img
+                        src="imagens/tcc/diagrama/loja.jfif"
+                        alt="Diagrama da loja do Riverson"
+                        class="conteudo-imagem"
+                    >
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Identificação automática da página atual -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll("#MenuLateral .nav-link");
+
+            let currentPage = window.location.pathname.split("/").pop();
+
+            if (!currentPage) {
+                currentPage = "index.html";
+            }
+
+            links.forEach(function (link) {
+                const href = link.getAttribute("href");
+
+                if (href === currentPage) {
+                    link.classList.add("active");
+                    link.setAttribute("aria-current", "page");
+                } else {
+                    link.classList.remove("active");
+                    link.removeAttribute("aria-current");
+                }
+            });
+        });
+    </script>
+
 </body>
-<script>
-	document.addEventListener("DOMContentLoaded", function() {
-	  let links = document.querySelectorAll(".nav-link");
-	  let currentPage = window.location.pathname.split("/").pop(); // pega o nome do arquivo atual
-	  
-	  links.forEach(link => {
-		let href = link.getAttribute("href");
-		if (href === currentPage) {
-		  link.classList.add("active"); // ativa só o item da página atual
-		} else {
-		  link.classList.remove("active"); // garante que os outros fiquem limpos
-		}
-	  });
-	});
-  </script>
 </html>
