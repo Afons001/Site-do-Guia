@@ -1,0 +1,272 @@
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">   
+    <title>Relatório</title>
+	<link rel="icon" href="imagens\logo.svg">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<style>
+		.menu-box {
+			background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
+			border-radius: 15px;
+			padding: 20px;
+			margin: 15px;
+			box-shadow: 0 8px 25px rgba(23, 134, 93, 0.3);
+		}
+		
+		.menu-label {
+			color: white;
+			font-weight: 500;
+			font-size: 1.1rem;
+			margin: 0;
+			padding: 12px 15px;
+			border-radius: 10px;
+			transition: all 0.3s ease;
+			cursor: pointer;
+			display: block;
+			text-decoration: none;
+		}
+		
+		.menu-label:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+			transform: translateX(5px);
+			color: white;
+			text-decoration: none;
+		}
+		
+		.nav-link {
+			padding: 0;
+			margin: 5px 0;
+			border-radius: 10px;
+			transition: all 0.3s ease;
+		}
+		
+		.nav-link:hover {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+		
+		.offcanvas {
+			background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+		}
+		
+		.offcanvas-header {
+			background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
+			color: white;
+			border-radius: 0 0 15px 15px;
+		}
+		
+		.btn-close {
+			filter: invert(1);
+		}
+		
+		/* Animação de entrada */
+		@keyframes slideIn {
+			from {
+				transform: translateX(-100%);
+				opacity: 0;
+			}
+			to {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+		
+		
+		/* Efeito de destaque para o item ativo */
+		.nav-link.active .menu-label {
+			background-color: rgba(255, 255, 255, 0.3);
+			box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+		}
+	</style>
+</head>
+<body>
+	<!-- Botão do Menu Verde -->
+	<button class="btn" type="button"
+		data-bs-toggle="offcanvas"
+		data-bs-target="#MenuLateral"
+		aria-controls="MenuLateral"
+		style="background-color:#17865D;color:#fff;position:fixed;top:20px;right:20px;z-index:1050;font-size:1.2rem;padding:8px 20px;border-radius:10px;box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+		<span style="font-size:1.5rem;vertical-align:middle;">☰</span> 
+		<span style="margin-left:8px;vertical-align:middle;">Menu</span>
+	</button>
+
+	<div class="offcanvas offcanvas-start" tabindex="-1" id="MenuLateral" aria-labelledby="MenuLateralLabel" style="width: 450px;">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="MenuLateralLabel">
+				<span style="font-size: 1.8rem; margin-right: 10px;">📊</span>
+				Menu de Navegação
+			</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<!-- Novo box para envolver os botões -->
+		<div class="menu-box">
+			<ul class="nav flex-column">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html" target="_self">
+						<label class="menu-label">
+							<span style="margin-right: 10px;">🏠</span>
+							Início
+						</label>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="selects.html" target="_self">
+						<label class="menu-label">
+							<span style="margin-right: 10px;">📈</span>
+							Instalação
+						</label>
+					</a>
+				</li>
+                <li class="nav-item">
+					<a class="nav-link" href="views.html" target="_self">
+						<label class="menu-label">
+							<span style="margin-right: 10px;">👁️</span>
+							Diagrama
+						</label>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="proc_join.html" target="_self">
+						<label class="menu-label">
+							<span style="margin-right: 10px;">🔗</span>
+							Criação de Tabelas Comandos
+						</label>
+					</a>
+				</li>
+                <li class="nav-item">
+					<a class="nav-link" href="proc_crud.html" target="_self">
+						<label class="menu-label">
+							<span style="margin-right: 10px;">⚙️</span>
+							Inserindo Dados
+						</label>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="proc_regras.html" target="_self">
+						<label class="menu-label">
+							<span style="margin-right: 10px;">📋</span>
+							Alterando Dados
+						</label>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="permissões.html" target="_self">
+						<label class="menu-label">
+							<span style="margin-right: 10px;">✔</span>
+							Pesquisas (Select)
+						</label>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="gatilhos.html" target="_self">
+						<label class="menu-label">
+							<span style="margin-right: 10px;">🔫</span>
+							Como Salvar
+						</label>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="offcanvas offcanvas-start" tabindex="-1" id="sideMenu" aria-labelledby="sideMenuLabel">
+	  <div class="offcanvas-header">
+		<h5 class="offcanvas-title" id="sideMenuLabel">Menu</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	  </div>
+	  <div class="offcanvas-body">
+		<ul class="list-group">
+		  <li class="list-group-item"><a href="#" class="text-decoration-none">Início</a></li>
+		  <li class="list-group-item"><a href="#" class="text-decoration-none">Instalação</a></li>
+          <li class="list-group-item"><a href="#" class="text-decoration-none">Diagrama</a></li>
+          <li class="list-group-item"><a href="#" class="text-decoration-none">Criação de Tabelas Comandos</a></li>
+		  <li class="list-group-item"><a href="#" class="text-decoration-none">Inserindo Dados</a></li>
+          <li class="list-group-item"><a href="#" class="text-decoration-none">Alterando Dados</a></li>
+          <li class="list-group-item"><a href="#" class="text-decoration-none">Pesquisas (Select)</a></li>
+		  <li class="list-group-item"><a href="#" class="text-decoration-none">Como Salvar</a></li>
+		</ul>
+	</div>
+</div>
+
+	<div class="container-fluid py-4">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 col-md-10 col-sm-12">
+				<div class="card shadow-lg border-0">
+					<div class="card-header bg-success text-white text-center py-4">
+						<h2 class="mb-0 text-white">Apresentações</h2>
+					</div>
+					<div class="card-body p-5 text-center">
+						<div class="text-center mb-4">
+							<h4 class="text-success mb-3">Componentes do Projeto</h4>
+							<div class="row justify-content-center">
+								<div class="col-md-6 mb-2">
+									<p class="mb-1"><strong>Afonso Cesar dos Santos</strong></p>
+								</div>
+								<div class="col-md-6 mb-2">
+									<p class="mb-1"><strong>Caio Lopes Coutinho</strong></p>
+								</div>
+								<div class="col-md-6 mb-2">
+									<p class="mb-1"><strong>Felipe Goes de Oliveira Santana</strong></p>
+								</div>
+								<div class="col-md-6 mb-2">
+									<p class="mb-1"><strong>Matheus Gomes Freire</strong></p>
+								</div>
+								<div class="col-md-6 mb-2">
+									<p class="mb-1"><strong>Rafael Ricardo Oliveira Santos</strong></p>
+								</div>
+							</div>
+						</div>
+						
+						
+
+							
+							<div class="mt-4 p-3 bg-success text-white rounded">
+								<p class="mb-0"><i class="fas fa-users"></i> Este é um guia para consulta dos alunos do 1° ano de Informática.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Script para destacar o item correto do menu -->
+	<script>
+	  document.addEventListener("DOMContentLoaded", function() {
+		let links = document.querySelectorAll(".nav-link");
+		let currentPage = window.location.pathname.split("/").pop(); // pega o nome do arquivo atual
+		
+		links.forEach(link => {
+		  let href = link.getAttribute("href");
+		  if (href === currentPage) {
+			link.classList.add("active"); // ativa só o item da página atual
+		  } else {
+			link.classList.remove("active"); // garante que os outros fiquem limpos
+		  }
+		});
+	  });
+	</script>
+</body>
+<style>
+	* 
+	{
+	  margin: 5px !important;
+	}
+
+	.btn-close
+	{
+	  filter: brightness(0%) !important;
+	}
+
+	h2 
+	{
+	  color: #0f7a0f !important; 
+	}
+
+	body 
+	{
+	  background-color: #f6f6f6 !important;
+	}
+</style>
+</html>
