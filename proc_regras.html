@@ -70,16 +70,16 @@
         }
 
         .conteudo-imagem {
-            width: 50%;
-            max-width: 100%;
+            display: block;
+            width: 100%;
             height: auto;
         }
 
-        @media (max-width: 768px) {
-            .conteudo-imagem {
-                width: 100%;
-            }
+        .texto-conteudo {
+            min-width: 0;
+        }
 
+        @media (max-width: 768px) {
             .offcanvas {
                 max-width: 90%;
             }
@@ -193,12 +193,22 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
-
-                <img
-                    src="imagens/TCC/Alterando Dados/gato.jfif"
-                    alt="Alter Table"
-                    class="conteudo-imagem">
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/Alterando Dados/gato.jfif"
+                            alt="Alter Table"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>O vídeo explica o funcionamento do comando UPDATE em bancos de dados, que serve para modificar
+                        valores já inseridos em uma tabela. O tutorial demonstra a sintaxe básica utilizando a cláusula SET
+                        para definir a alteração e reforça a importância crítica de usar o WHERE para filtrar qual linha será
+                        atualizada.
+                        </p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -217,12 +227,24 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/Alterando Dados/macaco.jfif"
+                            alt="Update"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>O vídeo apresenta o comando ALTER TABLE no SQL, essencial para modificar tabelas existentes sem
+                        a necessidade de recriá-las. O autor demonstra três operações fundamentais: o ADD, utilizado para
+                        incluir novos atributos, o CHANGE, que permite renomear ou ajustar colunas existentes, como alterar o
+                        tipo ou tamanho de um dado, e o DROP, que remove atributos que não são mais necessários,
+                        otimizando o fluxo de trabalho no banco de dados.
 
-                <img
-                    src="imagens/TCC/Alterando Dados/macaco.jfif"
-                    alt="Update"
-                    class="conteudo-imagem">
+                        </p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -241,12 +263,23 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
-
-                <img
-                    src="imagens/TCC/Alterando Dados/patrick up.jfif"
-                    alt="Patrick Up"
-                    class="conteudo-imagem">
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/Alterando Dados/patrick up.jfif"
+                            alt="Patrick Up"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>Este vídeo demonstra como atualizar valores em uma tabela de produtos da “Loja do Riverson” com o
+                        comando UPDATE no SQL. O tutorial exemplifica a alteração do preço de um item específico e,
+                        posteriormente, mostra como aplicar um reajuste percentual de 10% em vários produtos
+                        simultaneamente. Durante o processo, ele explica a importância de utilizar a cláusula WHERE para
+                        evitar alterações indesejadas em todo o banco de dados e ensina como desativar a trava de segurança
+                        do sistema (SQL safe updates) para permitir a execução de atualizações em lote.</p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -265,12 +298,23 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/Alterando Dados/rivers alter.jfif"
+                            alt="Rivers Alter"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>O vídeo demonstra, através de exemplos na “Loja do Riverson”, como adicionar uma nova coluna,
+                        modificar o tipo de dado de um atributo existente e, por fim, excluir uma coluna desnecessária,
+                        utilizando o comando DESCRIBE para validar cada uma das alterações realizadas na estrutura do
+                        banco de dados.
 
-                <img
-                    src="imagens/TCC/Alterando Dados/rivers alter.jfif"
-                    alt="Rivers Alter"
-                    class="conteudo-imagem">
+                        </p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 

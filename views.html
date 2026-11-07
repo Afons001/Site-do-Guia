@@ -84,18 +84,17 @@
 
         .conteudo-imagem {
             display: block;
-            max-width: 100%;
-            width: 50%;
+            width: 100%;
             height: auto;
+        }
+
+        .texto-conteudo {
+            min-width: 0;
         }
 
         @media (max-width: 576px) {
             .menu-lateral {
                 width: 85% !important;
-            }
-
-            .conteudo-imagem {
-                width: 100%;
             }
         }
     </style>
@@ -241,18 +240,25 @@
                 <a
                     href="https://youtu.be/dAwtZ0leiuU?si=SIMojMODpOsfa_Lg"
                     target="_blank"
-                    rel="noopener noreferrer"
-                >
+                    rel="noopener noreferrer">
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
-
-                <img
-                    src="imagens/TCC/diagrama/identificar.jfif"
-                    alt="Diagrama de identificação de relacionamentos"
-                    class="conteudo-imagem"
-                >
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/diagrama/identificar.jfif"
+                            alt="Diagrama de identificação de relacionamentos"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>O vídeo explica como organizar relacionamentos entre entidades em bancos de dados. Ele detalha o
+                        modelo um para muitos, como no caso de um cliente e suas várias compras, e o modelo muitos para
+                        muitos, que exige uma tabela intermediária para organizar os dados corretamente.
+                        </p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -271,13 +277,21 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
-
-                <img
-                    src="imagens/TCC/diagrama/normalizar.jfif"
-                    alt="Diagrama de normalização"
-                    class="conteudo-imagem"
-                >
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/diagrama/normalizar.jfif"
+                            alt="Diagrama de normalização"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>O vídeo apresenta um passo a passo prático sobre a normalização de bancos de dados, partindo de
+                        uma tabela desorganizada que mistura informações diversas, como alunos, turmas, professores,
+                        matérias e cursos.
+                        </p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -296,13 +310,21 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
-
-                <img
-                    src="imagens/TCC/diagrama/criar%201.jfif"
-                    alt="Exemplo de criação de tabelas"
-                    class="conteudo-imagem"
-                >
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/diagrama/criar%201.jfif"
+                            alt="Exemplo de criação de tabelas"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>O vídeo apresenta um guia prático sobre como modelar um banco de dados relacional utilizando a
+                        ferramenta de diagrama do MySQL Workbench. A partir de um cenário hipotético de uma loja de jogos,
+                        o tutorial demonstra passo a passo como identificar as entidades principais, criar as tabelas com seus
+                        respectivos atributos e definir chaves primárias e estrangeiras.</p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -333,13 +355,25 @@
                         <h3>Clique aqui para assistir!</h3>
                     </a>
 
-                    <br>
+                    <div class="row g-4 align-items-start mt-1">
+                        <div class="col-12 col-lg-6">
+                            <img
+                                src="imagens/TCC/diagrama/loja.jfif"
+                                alt="Diagrama da loja do Riverson"
+                                class="conteudo-imagem">
+                        </div>
+                        <div class="col-12 col-lg-6 texto-conteudo">
+                            <h3>Sobre o vídeo</h3>
+                            <h5><p>Este vídeo apresenta um estudo de caso prático sobre a criação de um banco de dados relacional para
+                            a "Loja do Riverson". O tutorial demonstra o processo de normalização de dados desorganizados,
+                            estruturando-os em um diagrama de entidade e relacionamento. Ao longo do processo, são criadas
+                            tabelas para clientes, categorias, produtos e pedidos, estabelecendo as chaves primárias e
+                            estrangeiras necessárias para garantir a integridade e o bom funcionamento do banco, preparando o
+                            terreno para a implementação via código em uma próxima aula.
 
-                    <img
-                        src="imagens/TCC/diagrama/loja.jfif"
-                        alt="Diagrama da loja do Riverson"
-                        class="conteudo-imagem"
-                    >
+                            </p></h5>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

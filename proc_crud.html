@@ -72,16 +72,16 @@
         }
 
         .conteudo-imagem {
-            width: 50%;
-            max-width: 100%;
+            display: block;
+            width: 100%;
             height: auto;
         }
 
-        @media (max-width: 768px) {
-            .conteudo-imagem {
-                width: 100%;
-            }
+        .texto-conteudo {
+            min-width: 0;
+        }
 
+        @media (max-width: 768px) {
             .offcanvas {
                 max-width: 90%;
             }
@@ -212,12 +212,21 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
-
-                <img
-                    src="imagens/TCC/Inserindo Dados/insert 1.jfif"
-                    alt="Insert 1"
-                    class="conteudo-imagem">
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/Inserindo Dados/insert 1.jfif"
+                            alt="Insert 1"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>Este vídeo ensina como utilizar o comando INSERT no SQL para cadastrar dados em tabelas, e como
+                        verificar os dados inseridos através do comando SELECT. O tutorial demonstra a sintaxe básica, além
+                        de mostrar como otimizar o processo inserindo múltiplos registros de uma só vez.
+                        </p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -237,12 +246,23 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
-
-                <img
-                    src="imagens/TCC/Inserindo Dados/populando.jfif"
-                    alt="Populando"
-                    class="conteudo-imagem">
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/Inserindo Dados/populando.jfif"
+                            alt="Populando"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>Neste vídeo, o tutorial demonstra como popular o banco de dados da "Loja do Riverson" utilizando
+                        comandos SQL de inserção. Seguindo a lógica de preencher primeiro as tabelas que não possuem
+                        chaves estrangeiras, inserindo registros em categorias, clientes, produtos, pedidos e, por fim, relaciona
+                        os itens dos pedidos, corrigindo pequenos erros durante o processo para garantir a integridade dos
+                        dados inseridos
+                        </p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 

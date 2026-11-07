@@ -79,9 +79,13 @@
         }
 
         .conteudo-imagem {
-            width: 50%;
+            display: block;
+            width: 100%;
             height: auto;
-            max-width: 100%;
+        }
+
+        .texto-conteudo {
+            min-width: 0;
         }
 
         @media (max-width: 576px) {
@@ -89,9 +93,6 @@
                 width: 85% !important;
             }
 
-            .conteudo-imagem {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -191,7 +192,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="proc_regras.html">
+                    <a class="nav-link" href="proc_crud.html">
                         <span class="menu-label">
                             <span style="margin-right:10px;">🔎</span>
                             Alterando Dados
@@ -233,18 +234,27 @@
                 <a
                     href="https://youtu.be/b-9L2ri9XZ4?si=6ecKXAiqZ37Lkdqx"
                     target="_blank"
-                    rel="noopener noreferrer"
-                >
+                    rel="noopener noreferrer">
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
-
-                <img
-                    src="imagens/TCC/Como Salvar/eu.jfif"
-                    alt="Imagem explicativa sobre como salvar"
-                    class="conteudo-imagem"
-                >
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/Como Salvar/exportar.jfif"
+                            alt="Imagem explicativa sobre como salvar"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>O vídeo apresenta um tutorial prático sobre como realizar o salvamento e a exportação de projetos no
+                        MySQL Workbench. O guia demonstra primeiramente o processo de exportação do banco de dados
+                        através da ferramenta Data Export, orientando sobre a seleção de tabelas e a nomenclatura correta
+                        dos arquivos de backup. Em seguida, explica como salvar o código SQL diretamente no sistema
+                        utilizando a função Save Script As, garantindo que tanto o banco de dados quanto os scripts fiquem
+                        devidamente armazenados.</p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 

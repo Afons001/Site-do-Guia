@@ -70,16 +70,16 @@
         }
 
         .conteudo-imagem {
-            width: 50%;
-            max-width: 100%;
+            display: block;
+            width: 100%;
             height: auto;
         }
 
-        @media (max-width: 768px) {
-            .conteudo-imagem {
-                width: 100%;
-            }
+        .texto-conteudo {
+            min-width: 0;
+        }
 
+        @media (max-width: 768px) {
             .offcanvas {
                 max-width: 90%;
             }
@@ -193,12 +193,23 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/Tabelas Comandos/criar.jfif"
+                            alt="Criação de tabelas"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>O vídeo ensina a transformar um diagrama de banco de dados em comandos SQL práticos. O tutorial
+                        demonstra a criação de um banco de dados e suas tabelas, explicando a importância de respeitar a
+                        ordem de dependência entre elas para configurar corretamente as chaves primárias e estrangeiras. Ao
+                        final, é utilizado o comando de verificação para validar a estrutura criada no sistema.
 
-                <img
-                    src="imagens/TCC/Tabelas Comandos/criar.jfif"
-                    alt="Criação de tabelas"
-                    class="conteudo-imagem">
+                        </p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -217,12 +228,24 @@
                     <h3>Clique aqui para assistir!</h3>
                 </a>
 
-                <br>
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/TCC/Tabelas Comandos/n lembro.jfif"
+                            alt="Loja do Riverson"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>Este vídeo demonstra como converter um diagrama de banco de dados para códigos SQL práticos,
+                        criando a estrutura da "Loja do Riverson". O tutorial guia o processo desde a criação do banco de
+                        dados até a definição de tabelas, chaves primárias e relacionamentos por meio de chaves
+                        estrangeiras, finalizando com a verificação da integridade das tabelas criadas no sistema.
 
-                <img
-                    src="imagens/TCC/Tabelas Comandos/n lembro.jfif"
-                    alt="Loja do Riverson"
-                    class="conteudo-imagem">
+
+                        </p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
