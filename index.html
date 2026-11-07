@@ -114,6 +114,61 @@
 			text-align: center;
 		}
 	</style>
+	<style>
+		#MenuLateral {
+			width: min(450px, 90vw) !important;
+			max-width: 100vw;
+			display: flex;
+			flex-direction: column;
+		}
+
+		#MenuLateral .offcanvas-header {
+			flex-shrink: 0;
+			gap: 0.75rem;
+		}
+
+		#MenuLateral .offcanvas-title {
+			min-width: 0;
+			overflow-wrap: anywhere;
+		}
+
+		#MenuLateral .menu-box {
+			flex: 1 1 auto;
+			min-height: 0;
+			margin: clamp(8px, 2vw, 15px);
+			padding: clamp(10px, 3vw, 20px);
+			overflow-y: auto;
+			overscroll-behavior: contain;
+		}
+
+		#MenuLateral .menu-label {
+			display: flex;
+			min-height: 44px;
+			align-items: center;
+			overflow-wrap: anywhere;
+		}
+
+		button[data-bs-target="#MenuLateral"] {
+			inset-block-start: max(12px, env(safe-area-inset-top)) !important;
+			inset-inline-end: max(12px, env(safe-area-inset-right)) !important;
+			z-index: 1039 !important;
+			display: inline-flex;
+			max-width: calc(100vw - 24px);
+			align-items: center;
+			gap: 8px;
+			padding: 6px clamp(10px, 2vw, 20px) !important;
+			font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
+			white-space: nowrap;
+		}
+
+		button[data-bs-target="#MenuLateral"] span:first-child {
+			font-size: clamp(1.2rem, 1.5vw, 1.5rem) !important;
+		}
+
+		button[data-bs-target="#MenuLateral"] span:last-child {
+			margin-left: 0 !important;
+		}
+	</style>
 </head>
 <body>
 	<!-- Botão do Menu Verde -->
