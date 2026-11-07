@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -79,9 +78,12 @@
 
         .conteudo-imagem {
             display: block;
-            width: 50%;
-            max-width: 100%;
+            width: 100%;
             height: auto;
+        }
+
+        .texto-conteudo {
+            min-width: 0;
         }
 
         h2 {
@@ -89,12 +91,30 @@
         }
 
         @media (max-width: 768px) {
-            .conteudo-imagem {
-                width: 100%;
+            .offcanvas {
+                max-width: 90vw;
             }
 
-            .offcanvas {
-                max-width: 90%;
+            main.container-fluid {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-toggle {
+                top: 12px !important;
+                right: 12px !important;
+                padding: 6px 12px !important;
+                font-size: 1rem !important;
+            }
+
+            .menu-toggle span:first-child {
+                font-size: 1.2rem !important;
+            }
+
+            .card-body {
+                padding: 1rem;
             }
         }
     </style>
@@ -108,6 +128,7 @@
         data-bs-toggle="offcanvas"
         data-bs-target="#MenuLateral"
         aria-controls="MenuLateral"
+        class="btn menu-toggle"
         style="background-color:#17865D;color:#fff;position:fixed;top:20px;right:20px;z-index:1050;font-size:1.2rem;padding:8px 20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.3);">
 
         <span style="font-size:1.5rem;vertical-align:middle;">☰</span>
@@ -119,7 +140,7 @@
         tabindex="-1"
         id="MenuLateral"
         aria-labelledby="MenuLateralLabel"
-        style="width:450px;">
+        style="width:min(450px, 90vw);">
 
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="MenuLateralLabel">
@@ -203,15 +224,24 @@
                 <a href="https://youtu.be/6u1446_Xg5w?si=S3D4pw4U7EXIIbCA"
                     target="_blank"
                     rel="noopener noreferrer">
-                    <h3>Clique aqui para assistir!</h3>
+                    <h2 class="text-primary">Clique aqui para assistir!</h2>
                 </a>
 
-                <br>
-
-                <img
-                    src="imagens/tcc/instalar/instalacao.jfif"
-                    alt="Instalação"
-                    class="conteudo-imagem">
+                <div class="row g-4 align-items-start mt-1">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="imagens/tcc/instalar/instalacao.jfif"
+                            alt="Instalação"
+                            class="conteudo-imagem">
+                    </div>
+                    <div class="col-12 col-lg-6 texto-conteudo">
+                        <h3>Sobre o vídeo</h3>
+                        <h5><p>Este vídeo é um tutorial prático sobre como instalar o MySQL Workbench no Windows. O guia orienta
+                        desde o download no site oficial até a configuração completa do ambiente, incluindo a criação de uma
+                        senha de root. Além disso, o vídeo demonstra como configurar uma nova instância no Workbench e
+                        realizar um teste básico para verificar se o banco de dados está operando corretamente.</p></h5>
+                    </div>
+                </div>
             </div>
         </div>
 
