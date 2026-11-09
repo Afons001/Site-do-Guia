@@ -15,6 +15,14 @@ body {
     color: var(--texto-principal);
 }
 
+* {
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
 #MenuLateral {
     margin: 5px !important;
 }
@@ -36,14 +44,6 @@ body {
     padding: 20px !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-body.gatilhos #MenuLateral .menu-box {
-    scrollbar-width: none;
-}
-
-body.gatilhos #MenuLateral .menu-box::-webkit-scrollbar {
-    display: none;
 }
 
 body.gatilhos #MenuLateral .menu-label {
