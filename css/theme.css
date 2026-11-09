@@ -23,6 +23,10 @@ body {
     display: none;
 }
 
+main img {
+    border-radius: 8px;
+}
+
 #MenuLateral {
     margin: 5px !important;
 }
