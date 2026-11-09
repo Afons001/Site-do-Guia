@@ -21,11 +21,11 @@
 
     <style>
         .menu-box {
-            background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
+            background: var(--azul-escuro);
             border-radius: 15px;
             padding: 20px;
             margin: 15px;
-            box-shadow: 0 8px 25px rgba(23, 134, 93, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .menu-label {
@@ -60,13 +60,13 @@
         }
 
         .offcanvas {
-            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--fundo-secundario);
         }
 
         .offcanvas-header {
-            background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
-            color: white;
-            border-radius: 0 0 15px 15px;
+            background: var(--indigo-escuro);
+            color: var(--branco);
+            border-radius: 0 0 12px 12px;
         }
 
         .btn-close {
@@ -74,8 +74,8 @@
         }
 
         .nav-link.active .menu-label {
-            background-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            background-color: var(--indigo-principal);
+            color: var(--branco);
         }
 
         .conteudo-imagem {
@@ -94,8 +94,7 @@
             }
 
         }
-    </style>
-    <style>
+        
         #MenuLateral {
             width: min(450px, 90vw) !important;
             max-width: 100vw;
@@ -130,6 +129,8 @@
         }
 
         button[data-bs-target="#MenuLateral"] {
+            background-color: #4338CA !important;
+            color: #FFFFFF !important;
             inset-block-start: max(12px, env(safe-area-inset-top)) !important;
             inset-inline-end: max(12px, env(safe-area-inset-right)) !important;
             z-index: 1039 !important;
@@ -150,9 +151,10 @@
             margin-left: 0 !important;
         }
     </style>
+    <link href="css/theme.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="gatilhos">
 
     <!-- Botão do menu -->
     <button
@@ -161,7 +163,7 @@
         data-bs-toggle="offcanvas"
         data-bs-target="#MenuLateral"
         aria-controls="MenuLateral"
-        style="background-color:#17865D;color:#fff;position:fixed;top:20px;right:20px;z-index:1050;font-size:1.2rem;padding:8px 20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.3);"
+        style="background-color:var(--indigo-principal);color:var(--branco);position:fixed;top:20px;right:20px;z-index:1050;font-size:1.2rem;padding:8px 20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.3);"
     >
         <span style="font-size:1.5rem;vertical-align:middle;">☰</span>
         <span style="margin-left:8px;vertical-align:middle;">Menu</span>

@@ -1,392 +1,990 @@
+<!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Site do Guia de Aprendizado</title>
-	<link rel="icon" href="imagens\logo.svg">
+
+    <link rel="icon" href="imagens/logo.svg">
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-	<style>
-		.menu-box {
-			background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
-			border-radius: 15px;
-			padding: 20px;
-			margin: 15px;
-			box-shadow: 0 8px 25px rgba(23, 134, 93, 0.3);
-		}
-		
-		.menu-label {
-			color: white;
-			font-weight: 500;
-			font-size: 1.1rem;
-			margin: 0;
-			padding: 12px 15px;
-			border-radius: 10px;
-			transition: all 0.3s ease;
-			cursor: pointer;
-			display: block;
-			text-decoration: none;
-		}
-		
-		.menu-label:hover {
-			background-color: rgba(255, 255, 255, 0.2);
-			transform: translateX(5px);
-			color: white;
-			text-decoration: none;
-		}
-		
-		.nav-link {
-			padding: 0;
-			margin: 5px 0;
-			border-radius: 10px;
-			transition: all 0.3s ease;
-		}
-		
-		.nav-link:hover {
-			background-color: rgba(255, 255, 255, 0.1);
-		}
-		
-		.offcanvas {
-			background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
-		}
-		
-		.offcanvas-header {
-			background: linear-gradient(135deg, #17865D 0%, #1a9b6b 100%);
-			color: white;
-			border-radius: 0 0 15px 15px;
-		}
-		
-		.btn-close {
-			filter: invert(1);
-		}
-		
-		/* Animação de entrada */
-		@keyframes slideIn {
-			from {
-				transform: translateX(-100%);
-				opacity: 0;
-			}
-			to {
-				transform: translateX(0);
-				opacity: 1;
-			}
-		}
-		
-		
-		/* Efeito de destaque para o item ativo */
-		.nav-link.active .menu-label {
-			background-color: rgba(255, 255, 255, 0.3);
-			box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-		}
 
-		.home-shortcut-card {
-			aspect-ratio: 1 / 1;
-			background-color: #17865D;
-		}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-		.home-shortcut-card .card-body {
-			display: flex;
-			flex-direction: column;
-			gap: 12px;
-			background-color: #17865D;
-		}
+    <style>
 
-		.home-shortcut-image {
-			display: grid;
-			flex: 1;
-			min-height: 0;
-			place-items: center;
-			border-radius: 0.375rem;
-			background-color: #fff;
-		}
+        /* =========================
+           PALETA DE CORES
+        ========================== */
 
-		.home-shortcut-image img {
-			max-width: 100%;
-			max-height: 100%;
-			object-fit: contain;
-		}
+        :root {
+            --fundo-principal: #0B1120;
+            --fundo-secundario: #111827;
+            --azul-escuro: #172554;
+            --indigo-escuro: #312E81;
+            --indigo-principal: #4338CA;
 
-		.home-shortcut-link {
-			display: block;
-			padding: 10px;
-			border-radius: 0.375rem;
-			background-color: #fff;
-			text-align: center;
-		}
-	</style>
-	<style>
-		#MenuLateral {
-			width: min(450px, 90vw) !important;
-			max-width: 100vw;
-			display: flex;
-			flex-direction: column;
-		}
+            --texto-principal: #F8FAFC;
+            --texto-secundario: #CBD5E1;
+            --branco: #FFFFFF;
+        }
 
-		#MenuLateral .offcanvas-header {
-			flex-shrink: 0;
-			gap: 0.75rem;
-		}
 
-		#MenuLateral .offcanvas-title {
-			min-width: 0;
-			overflow-wrap: anywhere;
-		}
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================== */
 
-		#MenuLateral .menu-box {
-			flex: 1 1 auto;
-			min-height: 0;
-			margin: clamp(8px, 2vw, 15px);
-			padding: clamp(10px, 3vw, 20px);
-			overflow-y: auto;
-			overscroll-behavior: contain;
-		}
+        * {
+            margin: 5px !important;
+        }
 
-		#MenuLateral .menu-label {
-			display: flex;
-			min-height: 44px;
-			align-items: center;
-			overflow-wrap: anywhere;
-		}
+        body {
+            background-color: var(--fundo-principal) !important;
+            color: var(--texto-principal);
+        }
 
-		button[data-bs-target="#MenuLateral"] {
-			inset-block-start: max(12px, env(safe-area-inset-top)) !important;
-			inset-inline-end: max(12px, env(safe-area-inset-right)) !important;
-			z-index: 1039 !important;
-			display: inline-flex;
-			max-width: calc(100vw - 24px);
-			align-items: center;
-			gap: 8px;
-			padding: 6px clamp(10px, 2vw, 20px) !important;
-			font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
-			white-space: nowrap;
-		}
 
-		button[data-bs-target="#MenuLateral"] span:first-child {
-			font-size: clamp(1.2rem, 1.5vw, 1.5rem) !important;
-		}
+        /* =========================
+           MENU LATERAL
+        ========================== */
 
-		button[data-bs-target="#MenuLateral"] span:last-child {
-			margin-left: 0 !important;
-		}
-	</style>
+        .menu-box {
+            background-color: var(--azul-escuro);
+
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.30);
+        }
+
+
+        .menu-label {
+            color: var(--texto-principal);
+
+            font-weight: 500;
+            font-size: 1.1rem;
+
+            margin: 0;
+            padding: 12px 15px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            display: block;
+
+            text-decoration: none;
+        }
+
+
+        .menu-label:hover {
+            background-color: var(--indigo-escuro);
+            color: var(--branco);
+
+            text-decoration: none;
+        }
+
+
+        .nav-link {
+            padding: 0;
+
+            margin: 5px 0;
+
+            border-radius: 8px;
+        }
+
+
+        .nav-link.active .menu-label {
+            background-color: var(--indigo-principal);
+            color: var(--branco);
+        }
+
+
+        /* =========================
+           MENU OFFCANVAS
+        ========================== */
+
+        .offcanvas {
+            background-color: var(--fundo-secundario);
+            color: var(--texto-principal);
+        }
+
+
+        .offcanvas-header {
+            background-color: var(--indigo-escuro);
+
+            color: var(--texto-principal);
+
+            border-radius: 0 0 12px 12px;
+        }
+
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+
+        /* =========================
+           TAMANHO DO MENU
+        ========================== */
+
+        #MenuLateral {
+            width: min(450px, 90vw) !important;
+
+            max-width: 100vw;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        #MenuLateral .offcanvas-header {
+            flex-shrink: 0;
+
+            gap: 0.75rem;
+        }
+
+
+        #MenuLateral .offcanvas-title {
+            min-width: 0;
+
+            overflow-wrap: anywhere;
+        }
+
+
+        #MenuLateral .menu-box {
+            flex: 1 1 auto;
+
+            min-height: 0;
+
+            margin: clamp(8px, 2vw, 15px);
+
+            padding: clamp(10px, 3vw, 20px);
+
+            overflow-y: auto;
+
+            overscroll-behavior: contain;
+        }
+
+
+        #MenuLateral .menu-label {
+            display: flex;
+
+            min-height: 44px;
+
+            align-items: center;
+
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =========================
+           BOTÃO DO MENU
+        ========================== */
+
+        button[data-bs-target="#MenuLateral"] {
+            background-color: #4338CA !important;
+            color: #FFFFFF !important;
+
+            border: none;
+
+            border-radius: 10px;
+
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+
+            inset-block-start:
+                max(12px, env(safe-area-inset-top)) !important;
+
+            inset-inline-end:
+                max(12px, env(safe-area-inset-right)) !important;
+
+            z-index: 1039 !important;
+
+            display: inline-flex;
+
+            max-width: calc(100vw - 24px);
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                8px clamp(12px, 2vw, 20px) !important;
+
+            font-size:
+                clamp(1rem, 1.2vw, 1.2rem) !important;
+
+            white-space: nowrap;
+        }
+
+
+        button[data-bs-target="#MenuLateral"]:hover {
+            background-color: #3730A3 !important;
+            color: #FFFFFF !important;
+        }
+
+
+        button[data-bs-target="#MenuLateral"] span:first-child {
+            font-size:
+                clamp(1.2rem, 1.5vw, 1.5rem) !important;
+        }
+
+
+        button[data-bs-target="#MenuLateral"] span:last-child {
+            margin-left: 0 !important;
+        }
+
+
+        /* =========================
+           CARD PRINCIPAL
+        ========================== */
+
+        .card {
+            background-color: var(--fundo-secundario);
+            color: var(--texto-principal);
+
+            border-radius: 12px;
+        }
+
+
+        .card-header-principal {
+            background-color: var(--indigo-escuro);
+
+            color: var(--branco);
+        }
+
+
+        .card-body {
+            background-color: var(--fundo-secundario);
+        }
+
+
+        .titulo-secao {
+            color: var(--texto-principal);
+
+            font-weight: 700;
+        }
+
+
+        .descricao-projeto {
+            background-color: var(--azul-escuro);
+
+            color: var(--texto-principal);
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+
+        /* =========================
+           CARDS DAS REDES SOCIAIS
+        ========================== */
+
+        .home-shortcut-card {
+            aspect-ratio: 1 / 1;
+
+            background-color: var(--azul-escuro);
+
+            border-radius: 12px;
+
+            border: none;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.30);
+        }
+
+
+        .home-shortcut-card .card-body {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+            background-color: var(--azul-escuro);
+
+            border-radius: 12px;
+        }
+
+
+        .home-shortcut-image {
+            display: grid;
+
+            flex: 1;
+
+            min-height: 0;
+
+            place-items: center;
+
+            border-radius: 8px;
+
+            background-color: var(--branco);
+        }
+
+
+        .home-shortcut-image img {
+            max-width: 100%;
+
+            max-height: 100%;
+
+            object-fit: contain;
+        }
+
+
+        .home-shortcut-link {
+            display: block;
+
+            padding: 10px;
+
+            border-radius: 6px;
+
+            background-color: #FFFFFF;
+
+            color: #172554;
+
+            text-align: center;
+
+            font-weight: 500;
+
+            text-decoration: none;
+        }
+
+
+        .home-shortcut-link:hover {
+            background-color: #E5E7EB;
+
+            color: #172554;
+        }
+
+
+        /* =========================
+           TÍTULOS
+        ========================== */
+
+        h2 {
+            color: var(--texto-principal) !important;
+        }
+
+    </style>
+    <link href="css/theme.css" rel="stylesheet">
+
 </head>
+
+
 <body>
-	<!-- Botão do Menu Verde -->
-	<button class="btn" type="button"
-		data-bs-toggle="offcanvas"
-		data-bs-target="#MenuLateral"
-		aria-controls="MenuLateral"
-		style="background-color:#17865D;color:#fff;position:fixed;top:20px;right:20px;z-index:1050;font-size:1.2rem;padding:8px 20px;border-radius:10px;box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
-		<span style="font-size:1.5rem;vertical-align:middle;">☰</span> 
-		<span style="margin-left:8px;vertical-align:middle;">Menu</span>
-	</button>
 
-	<div class="offcanvas offcanvas-start" tabindex="-1" id="MenuLateral" aria-labelledby="MenuLateralLabel" style="width: 450px;">
-		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="MenuLateralLabel">
-				<span style="font-size: 1.8rem; margin-right: 10px;">📊</span>
-				Menu de Navegação
-			</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-		</div>
-		<!-- Novo box para envolver os botões -->
-		<div class="menu-box">
-			<ul class="nav flex-column">
-				<li class="nav-item">
-					<a class="nav-link" href="index.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">🏠</span>
-							Início
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="selects.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">📈</span>
-							Instalação
-						</label>
-					</a>
-				</li>
+
+    <!-- BOTÃO DO MENU -->
+
+    <button
+        class="btn"
+        type="button"
+
+        data-bs-toggle="offcanvas"
+
+        data-bs-target="#MenuLateral"
+
+        aria-controls="MenuLateral"
+
+        style="
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            font-size: 1.2rem;
+        "
+    >
+
+        <span style="font-size: 1.5rem; vertical-align: middle;">
+            ☰
+        </span>
+
+        <span style="margin-left: 8px; vertical-align: middle;">
+            Menu
+        </span>
+
+    </button>
+
+
+
+    <!-- MENU LATERAL -->
+
+    <div
+        class="offcanvas offcanvas-start"
+
+        tabindex="-1"
+
+        id="MenuLateral"
+
+        aria-labelledby="MenuLateralLabel"
+    >
+
+
+        <div class="offcanvas-header">
+
+
+            <h5
+                class="offcanvas-title"
+
+                id="MenuLateralLabel"
+            >
+
+                <span style="font-size: 1.8rem; margin-right: 10px;">
+                    📊
+                </span>
+
+                Menu de Navegação
+
+            </h5>
+
+
+            <button
+                type="button"
+
+                class="btn-close"
+
+                data-bs-dismiss="offcanvas"
+
+                aria-label="Fechar"
+            ></button>
+
+
+        </div>
+
+
+
+        <div class="menu-box">
+
+
+            <ul class="nav flex-column">
+
+
                 <li class="nav-item">
-					<a class="nav-link" href="views.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">👁️</span>
-							Diagrama
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="proc_join.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">🔗</span>
-							Criação de Tabelas Comandos
-						</label>
-					</a>
-				</li>
+
+                    <a
+                        class="nav-link"
+
+                        href="index.html"
+                    >
+
+                        <label class="menu-label">
+
+                            <span style="margin-right: 10px;">
+                                🏠
+                            </span>
+
+                            Início
+
+                        </label>
+
+                    </a>
+
+                </li>
+
+
+
                 <li class="nav-item">
-					<a class="nav-link" href="proc_crud.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">⚙️</span>
-							Inserindo Dados
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="proc_regras.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">📋</span>
-							Alterando Dados
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="permissões.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">✔</span>
-							Pesquisas (Select)
-						</label>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="gatilhos.html" target="_self">
-						<label class="menu-label">
-							<span style="margin-right: 10px;">🔫</span>
-							Como Salvar
-						</label>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
 
-	<div class="offcanvas offcanvas-start" tabindex="-1" id="sideMenu" aria-labelledby="sideMenuLabel">
-	  <div class="offcanvas-header">
-		<h5 class="offcanvas-title" id="sideMenuLabel">Menu</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-	  </div>
-	  <div class="offcanvas-body">
-		<ul class="list-group">
-		  <li class="list-group-item"><a href="#" class="text-decoration-none">Início</a></li>
-		  <li class="list-group-item"><a href="#" class="text-decoration-none">Instalação</a></li>
-          <li class="list-group-item"><a href="#" class="text-decoration-none">Diagrama</a></li>
-          <li class="list-group-item"><a href="#" class="text-decoration-none">Criação de Tabelas Comandos</a></li>
-		  <li class="list-group-item"><a href="#" class="text-decoration-none">Inserindo Dados</a></li>
-          <li class="list-group-item"><a href="#" class="text-decoration-none">Alterando Dados</a></li>
-          <li class="list-group-item"><a href="#" class="text-decoration-none">Pesquisas (Select)</a></li>
-		  <li class="list-group-item"><a href="#" class="text-decoration-none">Como Salvar</a></li>
-		</ul>
-	</div>
-</div>
+                    <a
+                        class="nav-link"
 
-	<div class="container-fluid py-4">
-		<div class="row justify-content-center">
-			<div class="col-lg-8 col-md-10 col-sm-12">
-				<div class="card shadow-lg border-0">
-					<div class="card-header bg-success text-white text-center py-4">
-						<h2 class="mb-0 text-white">Apresentações</h2>
-					</div>
-					<div class="card-body p-5 text-center">
-						<div class="text-center mb-4">
-							<h4 class="text-success mb-3">Componentes do Projeto</h4>
-							<div class="row justify-content-center">
-								<div class="col-md-6 mb-2">
-									<p class="mb-1"><strong>Afonso Cesar dos Santos</strong></p>
-								</div>
-								<div class="col-md-6 mb-2">
-									<p class="mb-1"><strong>Caio Lopes Coutinho</strong></p>
-								</div>
-								<div class="col-md-6 mb-2">
-									<p class="mb-1"><strong>Felipe Goes de Oliveira Santana</strong></p>
-								</div>
-								<div class="col-md-6 mb-2">
-									<p class="mb-1"><strong>Matheus Gomes Freire</strong></p>
-								</div>
-								<div class="col-md-6 mb-2">
-									<p class="mb-1"><strong>Rafael Ricardo Oliveira Santos</strong></p>
-								</div>
-							</div>
-						</div>
-						
-						
+                        href="selects.html"
+                    >
 
-							
-							<div class="mt-4 p-3 bg-success text-white rounded">
-								<p class="mb-0"><i class="fas fa-users"></i>Este projeto é um guia digital de apoio aos alunos do 1º ano do curso Técnico em Informática da Etec de Cubatão,
-								com foco na disciplina de Banco de Dados. O objetivo é auxiliar os estudantes na compreensão dos conteúdos
-								e na realização de atividades práticas, por meio de vídeos curtos e explicativos que apresentam conceitos,
-								comandos SQL e procedimentos utilizados na criação e manipulação de bancos de dados.<br></p>
-								<br>
-								<p class="mb-0">Os materiais abordam temas como normalização, criação de tabelas, INSERT,
-								SELECT e resolução de erros comuns. Este site funciona como um HUB, reunindo e organizando os conteúdos e direcionando
-								os alunos aos vídeos publicados em nossas redes sociais, permitindo que consultem as explicações sempre que precisarem 
-								revisar ou aprender determinado assunto.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                        <label class="menu-label">
 
-			<div class="row justify-content-center g-4 mt-2">
-				<div class="col-10 col-sm-5 col-lg-3">
-					<div class="card home-shortcut-card shadow border-0">
-						<div class="card-body">
-							<!-- Substitua esta área por uma imagem quando estiver pronta. -->
-							<div class="home-shortcut-image"><img src="imagens/TCC/logo/logo.jpg" alt="logo" class="img-fluid"></img></div>
-							<a href="https://youtube.com/@mestresensinando?si=HSx_U2N3adWQ6P_w" class="home-shortcut-link" target="_blank" rel="noopener noreferrer">Canal do YouTube</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-10 col-sm-5 col-lg-3">
-					<div class="card home-shortcut-card shadow border-0">
-						<div class="card-body">
-							<!-- Substitua esta área por uma imagem quando estiver pronta. -->
-							<div class="home-shortcut-image"><img src="imagens/TCC/logo/logo.jpg" alt="logo" class="img-fluid"></img></div>
-							<a href="https://www.instagram.com/mestres_ensinam01?utm_source=ig_web_button_share_sheet&mdxt=ZDNlZDc0MzIxNw==" class="home-shortcut-link" target="_blank" rel="noopener noreferrer">Página do Instagram</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			</div>
-	</div>
+                            <span style="margin-right: 10px;">
+                                📈
+                            </span>
 
-	<!-- Script para destacar o item correto do menu -->
-	<script>
-	  document.addEventListener("DOMContentLoaded", function() {
-		let links = document.querySelectorAll(".nav-link");
-		let currentPage = window.location.pathname.split("/").pop(); // pega o nome do arquivo atual
-		
-		links.forEach(link => {
-		  let href = link.getAttribute("href");
-		  if (href === currentPage) {
-			link.classList.add("active"); // ativa só o item da página atual
-		  } else {
-			link.classList.remove("active"); // garante que os outros fiquem limpos
-		  }
-		});
-	  });
-	</script>
+                            Instalação
+
+                        </label>
+
+                    </a>
+
+                </li>
+
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="views.html"
+                    >
+
+                        <label class="menu-label">
+
+                            <span style="margin-right: 10px;">
+                                👁️
+                            </span>
+
+                            Diagrama
+
+                        </label>
+
+                    </a>
+
+                </li>
+
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="proc_join.html"
+                    >
+
+                        <label class="menu-label">
+
+                            <span style="margin-right: 10px;">
+                                🔗
+                            </span>
+
+                            Criação de Tabelas
+
+                        </label>
+
+                    </a>
+
+                </li>
+
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="proc_crud.html"
+                    >
+
+                        <label class="menu-label">
+
+                            <span style="margin-right: 10px;">
+                                ⚙️
+                            </span>
+
+                            Inserindo Dados
+
+                        </label>
+
+                    </a>
+
+                </li>
+
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="proc_regras.html"
+                    >
+
+                        <label class="menu-label">
+
+                            <span style="margin-right: 10px;">
+                                📋
+                            </span>
+
+                            Alterando Dados
+
+                        </label>
+
+                    </a>
+
+                </li>
+
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="permissões.html"
+                    >
+
+                        <label class="menu-label">
+
+                            <span style="margin-right: 10px;">
+                                ✔
+                            </span>
+
+                            Pesquisas (Select)
+
+                        </label>
+
+                    </a>
+
+                </li>
+
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+
+                        href="gatilhos.html"
+                    >
+
+                        <label class="menu-label">
+
+                            <span style="margin-right: 10px;">
+                                💾
+                            </span>
+
+                            Como Salvar
+
+                        </label>
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <div class="container-fluid py-4">
+
+
+        <div class="row justify-content-center">
+
+
+            <div class="col-lg-8 col-md-10 col-sm-12">
+
+
+                <div class="card shadow-lg border-0">
+
+
+                    <!-- CABEÇALHO -->
+
+                    <div
+                        class="card-header card-header-principal text-center py-4"
+                    >
+
+                        <h2 class="mb-0 text-white">
+                            Apresentações
+                        </h2>
+
+                    </div>
+
+
+
+                    <!-- CONTEÚDO -->
+
+                    <div class="card-body p-5 text-center">
+
+
+                        <div class="text-center mb-4">
+
+
+                            <h4 class="mb-3 titulo-secao">
+                                Componentes do Projeto
+                            </h4>
+
+
+
+                            <div class="row justify-content-center">
+
+
+                                <div class="col-md-6 mb-2">
+
+                                    <p class="mb-1">
+                                        <strong>
+                                            Afonso Cesar dos Santos
+                                        </strong>
+                                    </p>
+
+                                </div>
+
+
+
+                                <div class="col-md-6 mb-2">
+
+                                    <p class="mb-1">
+                                        <strong>
+                                            Caio Lopes Coutinho
+                                        </strong>
+                                    </p>
+
+                                </div>
+
+
+
+                                <div class="col-md-6 mb-2">
+
+                                    <p class="mb-1">
+                                        <strong>
+                                            Felipe Goes de Oliveira Santana
+                                        </strong>
+                                    </p>
+
+                                </div>
+
+
+
+                                <div class="col-md-6 mb-2">
+
+                                    <p class="mb-1">
+                                        <strong>
+                                            Matheus Gomes Freire
+                                        </strong>
+                                    </p>
+
+                                </div>
+
+
+
+                                <div class="col-md-6 mb-2">
+
+                                    <p class="mb-1">
+                                        <strong>
+                                            Rafael Ricardo Oliveira Santos
+                                        </strong>
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- DESCRIÇÃO DO PROJETO -->
+
+                        <div
+                            class="mt-4 p-3 rounded descricao-projeto"
+                        >
+
+
+                            <p class="mb-0">
+
+                                Este projeto é um guia digital de apoio aos
+                                alunos do 1º ano do curso Técnico em Informática
+                                da Etec de Cubatão, com foco na disciplina de
+                                Banco de Dados.
+
+                                O objetivo é auxiliar os estudantes na
+                                compreensão dos conteúdos e na realização de
+                                atividades práticas, por meio de vídeos curtos
+                                e explicativos que apresentam conceitos,
+                                comandos SQL e procedimentos utilizados na
+                                criação e manipulação de bancos de dados.
+
+                            </p>
+
+
+                            <br>
+
+
+                            <p class="mb-0">
+
+                                Os materiais abordam temas como normalização,
+                                criação de tabelas, INSERT, SELECT e resolução
+                                de erros comuns.
+
+                                Este site funciona como um HUB, reunindo e
+                                organizando os conteúdos e direcionando os
+                                alunos aos vídeos publicados em nossas redes
+                                sociais, permitindo que consultem as
+                                explicações sempre que precisarem revisar ou
+                                aprender determinado assunto.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- REDES SOCIAIS -->
+
+        <div class="row justify-content-center g-4 mt-2">
+
+
+            <!-- YOUTUBE -->
+
+            <div class="col-10 col-sm-5 col-lg-3">
+
+
+                <div
+                    class="card home-shortcut-card shadow border-0"
+                >
+
+
+                    <div class="card-body">
+
+
+                        <div class="home-shortcut-image">
+
+                            <img
+                                src="imagens/TCC/logo/logo.jpg"
+
+                                alt="Logo Mestres Ensinam"
+
+                                class="img-fluid"
+                            >
+
+                        </div>
+
+
+
+                        <a
+                            href="https://youtube.com/@mestresensinando?si=HSx_U2N3adWQ6P_w"
+
+                            class="home-shortcut-link"
+
+                            target="_blank"
+
+                            rel="noopener noreferrer"
+                        >
+
+                            Canal do YouTube
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="col-10 col-sm-5 col-lg-3">
+
+
+                <div
+                    class="card home-shortcut-card shadow border-0"
+                >
+
+
+                    <div class="card-body">
+
+
+                        <div class="home-shortcut-image">
+
+                            <img
+                                src="imagens/TCC/logo/logo.jpg"
+
+                                alt="Logo Mestres Ensinam"
+
+                                class="img-fluid"
+                            >
+
+                        </div>
+
+
+
+                        <a
+                            href="https://www.instagram.com/mestres_ensinam01"
+
+                            class="home-shortcut-link"
+
+                            target="_blank"
+
+                            rel="noopener noreferrer"
+                        >
+
+                            Página do Instagram
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- SCRIPT PARA DESTACAR A PÁGINA ATUAL -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                const links =
+                    document.querySelectorAll(".nav-link");
+
+                const currentPage =
+                    window.location.pathname
+                    .split("/")
+                    .pop();
+
+
+                links.forEach(function(link) {
+
+                    const href =
+                        link.getAttribute("href");
+
+
+                    if (href === currentPage) {
+
+                        link.classList.add("active");
+
+                    }
+
+                });
+
+            }
+        );
+
+    </script>
+
+
 </body>
-<style>
-	* 
-	{
-	  margin: 5px !important;
-	}
 
-	.btn-close
-	{
-	  filter: brightness(0%) !important;
-	}
-
-	h2 
-	{
-	  color: #0f7a0f !important; 
-	}
-
-	body 
-	{
-	  background-color: #f6f6f6 !important;
-	}
-</style>
 </html>
