@@ -1,0 +1,192 @@
+:root {
+    --fundo-principal: #0B1120;
+    --fundo-secundario: #111827;
+    --azul-escuro: #172554;
+    --indigo-escuro: #312E81;
+    --indigo-principal: #4338CA;
+    --indigo-hover: #3730A3;
+    --texto-principal: #F8FAFC;
+    --texto-secundario: #CBD5E1;
+    --branco: #FFFFFF;
+}
+
+body {
+    background-color: var(--fundo-principal) !important;
+    color: var(--texto-principal);
+}
+
+* {
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+main img {
+    border-radius: 8px;
+}
+
+#MenuLateral {
+    margin: 5px !important;
+}
+
+#MenuLateral .offcanvas-header {
+    margin: 5px !important;
+    border-radius: 0 0 12px 12px !important;
+}
+
+#MenuLateral .offcanvas-title,
+#MenuLateral .offcanvas-title > span,
+#MenuLateral .btn-close {
+    margin: 5px !important;
+}
+
+#MenuLateral .menu-box {
+    background: var(--azul-escuro) !important;
+    margin: 5px !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.gatilhos #MenuLateral .menu-label {
+    min-height: 38px;
+    padding: 8px 12px !important;
+    font-size: 1rem;
+}
+
+#MenuLateral .menu-box > .nav,
+#MenuLateral .menu-box .nav-item,
+#MenuLateral .menu-box .nav-link,
+#MenuLateral .menu-label {
+    margin: 5px !important;
+}
+
+#MenuLateral .menu-box .nav-link {
+    padding: 0 !important;
+    border-radius: 8px !important;
+}
+
+#MenuLateral .nav-link:hover {
+    background-color: transparent !important;
+}
+
+#MenuLateral .menu-label {
+    display: flex;
+    box-sizing: content-box !important;
+    min-height: 44px;
+    align-items: center;
+    overflow-wrap: anywhere;
+    padding: 12px 15px !important;
+    border-radius: 8px !important;
+    color: var(--texto-principal) !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: none;
+}
+
+#MenuLateral .menu-label > span {
+    margin: 5px !important;
+}
+
+#MenuLateral .menu-label:hover {
+    background-color: var(--indigo-escuro) !important;
+    color: var(--branco) !important;
+    transform: none !important;
+    text-decoration: none;
+}
+
+#MenuLateral .nav-link.active .menu-label {
+    background-color: var(--indigo-principal) !important;
+    color: var(--branco) !important;
+}
+
+.offcanvas {
+    background: var(--fundo-secundario) !important;
+    color: var(--texto-principal);
+}
+
+.offcanvas-header,
+.card-header,
+.bg-success {
+    background-color: var(--indigo-escuro) !important;
+    color: var(--branco) !important;
+}
+
+#MenuLateral .offcanvas-header {
+    background: var(--indigo-escuro) !important;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+.card,
+.card-body {
+    background-color: var(--fundo-secundario) !important;
+    color: var(--texto-principal) !important;
+}
+
+h2,
+h3,
+h4,
+h5,
+.text-primary {
+    color: var(--texto-principal) !important;
+}
+
+.text-muted {
+    color: var(--texto-secundario) !important;
+}
+
+a {
+    color: #A5B4FC;
+}
+
+a:hover {
+    color: #C7D2FE;
+}
+
+button[data-bs-target="#MenuLateral"] {
+    position: fixed !important;
+    inset-block-start: max(12px, env(safe-area-inset-top)) !important;
+    inset-inline-end: max(12px, env(safe-area-inset-right)) !important;
+    z-index: 1039 !important;
+    display: inline-flex;
+    max-width: calc(100vw - 24px);
+    align-items: center;
+    gap: 8px;
+    margin: 5px !important;
+    padding: 8px clamp(12px, 2vw, 20px) !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    background-color: var(--indigo-principal) !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    color: var(--branco) !important;
+    font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
+    white-space: nowrap;
+}
+
+button[data-bs-target="#MenuLateral"]:hover {
+    background-color: var(--indigo-hover) !important;
+    color: var(--branco) !important;
+}
+
+button[data-bs-target="#MenuLateral"] span:first-child {
+    margin: 5px !important;
+    font-size: clamp(1.2rem, 1.5vw, 1.5rem) !important;
+}
+
+button[data-bs-target="#MenuLateral"] span:last-child {
+    margin-left: 0 !important;
+    margin-right: 5px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+main hr {
+    background: linear-gradient(90deg, var(--indigo-escuro), var(--indigo-principal)) !important;
+}
