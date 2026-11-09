@@ -31,7 +31,7 @@ body {
 }
 
 #MenuLateral .menu-box {
-    background-color: var(--azul-escuro) !important;
+    background: var(--azul-escuro) !important;
     margin: 5px !important;
     padding: 20px !important;
     border-radius: 12px !important;
@@ -101,7 +101,7 @@ body.gatilhos #MenuLateral .menu-label {
 }
 
 .offcanvas {
-    background-color: var(--fundo-secundario) !important;
+    background: var(--fundo-secundario) !important;
     color: var(--texto-principal);
 }
 
@@ -110,6 +110,10 @@ body.gatilhos #MenuLateral .menu-label {
 .bg-success {
     background-color: var(--indigo-escuro) !important;
     color: var(--branco) !important;
+}
+
+#MenuLateral .offcanvas-header {
+    background: var(--indigo-escuro) !important;
 }
 
 .btn-close {
